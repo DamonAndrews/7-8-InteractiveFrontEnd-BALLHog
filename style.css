@@ -12,14 +12,14 @@ h2 {
     color: #FA8320;
   }
 
-  #flex1 {
+  #Dflex1 {
     display: flex;
     justify-content:space-around;
     text-align: center;
     color: #FA8320; 
   }
 
-  #flex2 {
+  #Dflex2 {
     display: flex;
     flex-direction: column;
   }
