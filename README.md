@@ -1,5 +1,8 @@
 # AwesomeGroupProject1
 
+
+I love javascript 
+
 Hi team! 
 
 Title: BallHog
@@ -25,4 +28,5 @@ Akira- HTML
 Alex- CSS (Tailwind, Materialize)
 Damon- JS
 Jeff- Web APIs (possible split)
+
 
