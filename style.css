@@ -5,5 +5,22 @@ body {
 h2 {
     text-align: center;
     color: #FA8320;
+    height: 200px;
   }
 
+.flexCenter {
+    display: flex;
+    justify-content:center;
+    text-align: center;
+    color: #FA8320; 
+  }
+
+.flexSpaceAround {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+  }
