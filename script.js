@@ -9,12 +9,13 @@ const options = {
 var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
-
+var goBtn = document.getElementById("goBtn");
 var team = 'Phoenix Suns';
 var player = "Booker";
 
 var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
 var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
+
 
 fetch(teamSearchurl, options)
     .then(response => response.json())
