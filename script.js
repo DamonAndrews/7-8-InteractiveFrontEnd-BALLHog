@@ -14,7 +14,7 @@ var player = "Booker";
 
 var teamIdSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
 
-// var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
+var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
 
 var url = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id + //response.response[0].id;
 
@@ -34,21 +34,19 @@ var superIndivPlayerSearch = 'https://api-nba-v1.p.rapidapi.com/players/statisti
 var extraPart = &team=1&season=2021
 
 //Fetch the new URL from above to display all info for the specific team
-fetch(teamSearchUrl, options)
-    .then(response => response.json())
-    .then(response => {
-      console.log("allGamesofAllPlayers",response)
+// fetch(teamSearchUrl, options)
+//     .then(response => response.json())
+//     .then(response => {
+//       console.log("allGamesofAllPlayers",response)
 
 //Creates a variable/Fetchable URL with the player's last name
 
 
-
 //Feth the new URL from above to display all info for the specific player
-fetch(indivPlayerSearch, options)
+fetch(, options)
     .then(response => response.json())
     .then(response => {
       console.log("Players",response)
-
     
       
   
