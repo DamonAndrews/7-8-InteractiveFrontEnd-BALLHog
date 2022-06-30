@@ -9,34 +9,14 @@ const options = {
 var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
-<<<<<<< HEAD
-var team = "Los Angeles Lakers";
-var player = 'Booker';
-=======
+
 var team = 'Phoenix Suns';
 var player = "Booker";
-<<<<<<< HEAD
->>>>>>> edd69038a05cb53ae3fc36c588b4351e9719d044
+
 var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
 var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
-        "X-RapidAPI-Host": 'api-nba-v1.p.rapidapi.com'
-    }
-  }
+
 fetch(teamSearchurl, options)
-=======
-
-var teamIdSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
-
-// var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
-
-  
-// Fetch the team Array//To get team ID
-fetch(teamIdSearchUrl, options)
->>>>>>> 36a5c6718b948f6ab255918a5f5e56f1312c0407
     .then(response => response.json())
     .then(response => {
     console.log("team",response)
@@ -46,16 +26,15 @@ fetch(teamIdSearchUrl, options)
   
 
 //Fetch the new URL from above to display all info for the specific team
-fetch(teamSearchUrl, options)
-    .then(response => response.json())
-    .then(response => {
-      console.log("allGamesofAllPlayers",response)
+// fetch(teamSearchUrl, options)
+//     .then(response => response.json())
+//     .then(response => {
+//       console.log("allGamesofAllPlayers",response)
 
 //Creates a variable/Fetchable URL with the player's last name
 
 var searchOnePlayerbyTeamandSeason = "https://api-nba-v1.p.rapidapi.com/players/statistics?id="
 + response.response[0].player.id + "&team=" + response.response[0].team.id + "&season=2021"
-
 
 //Feth the new URL from above to display all info for the specific player
 fetch(searchOnePlayerbyTeamandSeason, options)
@@ -75,7 +54,7 @@ fetch(searchOnePlayerbyTeamandSeason, options)
         console.log(averageAstPerGame);
         apg.textContent = averageAstPerGame
   // }) 
-  })})})
+  })})
 
 function avgPoint(array){
     let sum = array.reduce(function (cumulativePoints,thisGame) {
