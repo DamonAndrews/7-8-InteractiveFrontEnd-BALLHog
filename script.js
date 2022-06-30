@@ -1,7 +1,7 @@
 var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
-var team = 'Phoenix Suns';
+var team = "Los Angeles Lakers";
 var player = 'Booker';
 var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
 const options = {
@@ -53,10 +53,5 @@ function avgAst(array){
   let sum = array.reduce(function (cumulativeAssists,thisGame) {
   return cumulativeAssists + thisGame.assists
   }, 0)
-<<<<<<< HEAD
-    return sum/array.length
-}
-=======
  return (sum/array.length).toFixed(2)
 }
->>>>>>> 25c601e78f08cbb26ef21ff9e4942675b8ec1a67
