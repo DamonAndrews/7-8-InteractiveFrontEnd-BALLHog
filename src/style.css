@@ -1,14 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     background-color:black;
 }
 
-h2 {
-    text-align: center;
-    color: #FA8320;
-    height: 200px;
-  }
+header {
+  background-image: url("https://cdn.pixabay.com/photo/2019/10/18/15/41/basketball-4559472_960_720.jpg");
+  background-position: bottom;
+  margin-right: 10px;
+}
 
-.flexCenter {
+
+
+
+/* .flexCenter {
     display: flex;
     justify-content:center;
     text-align: center;
@@ -23,4 +30,4 @@ h2 {
 .flexColumn {
     display: flex;
     flex-direction: column;
-  }
+  } */
