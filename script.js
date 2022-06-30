@@ -22,7 +22,7 @@ fetch(teamSearchurl, options)
     console.log("team",response)
 
 //Creates a variable with the Team ID, a URL
-  var teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id 
+//  var teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id 
   
 
 //Fetch the new URL from above to display all info for the specific team
@@ -33,8 +33,7 @@ fetch(teamSearchurl, options)
 
 //Creates a variable/Fetchable URL with the player's last name
 
-var searchOnePlayerbyTeamandSeason = "https://api-nba-v1.p.rapidapi.com/players/statistics?id="
-+ response.response[0].player.id + "&team=" + response.response[0].team.id + "&season=2021"
+var searchOnePlayerbyTeamandSeason = "https://api-nba-v1.p.rapidapi.com/players/statistics?id=" + response.response[0].player.id + "&team=" + response.response[0].team.id + "&season=2021"
 
 //Feth the new URL from above to display all info for the specific player
 fetch(searchOnePlayerbyTeamandSeason, options)
@@ -42,37 +41,23 @@ fetch(searchOnePlayerbyTeamandSeason, options)
     .then(response => {
       console.log("Players",response)   
         
-        var averagePointsPerGame =  avgPoint(response.response)
+        var averagePointsPerGame =  avg(response.response,"points")
         console.log(averagePointsPerGame);
        ppg.textContent = averagePointsPerGame
         
-        var averageRebPerGame =  avgReb(response.response)
+        var averageRebPerGame =  avg(response.response,"totReb")
         console.log(averageRebPerGame);
         rpg.textContent = averageRebPerGame
 
-        var averageAstPerGame =  avgAst(response.response)
+        var averageAstPerGame =  avg(response.response, "assists")
         console.log(averageAstPerGame);
         apg.textContent = averageAstPerGame
   // }) 
   })})
 
-function avgPoint(array){
+function avg(array , property){
     let sum = array.reduce(function (cumulativePoints,thisGame) {
-    return cumulativePoints + thisGame.points
+    return cumulativePoints + thisGame[property]
   }, 0)
    return (sum/array.length).toFixed(2)
-}
-
-function avgReb(array){
-  let sum = array.reduce(function (cumulativeRebounds,thisGame) {
-  return cumulativeRebounds + thisGame.totReb
-  }, 0)
- return (sum/array.length).toFixed(2)
-}
-
-function avgAst(array){
-  let sum = array.reduce(function (cumulativeAssists,thisGame) {
-  return cumulativeAssists + thisGame.assists
-  }, 0)
- return (sum/array.length).toFixed(2)
 }
