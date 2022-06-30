@@ -2,7 +2,7 @@ var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
 var team = 'Phoenix Suns';
-var player = 'Booker';
+var player = "booker";
 var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
 const options = {
     method: 'GET',
@@ -14,13 +14,19 @@ const options = {
 fetch(teamSearchurl, options)
     .then(response => response.json())
     .then(response => {
-    console.log(response)
+    console.log("team",response)
     var url = 'https://api-nba-v1.p.rapidapi.com/players/statistics?team=' + response.response[0].id + '&season=2020';
   
-fetch(url, options)
+  fetch(url, options)
     .then(response => response.json())
     .then(response => {
-        console.log(response)
+        console.log("gamesbyteam",response)
+  //       var url2 = 'https://api-nba-v1.p.rapidapi.com/players/statistics?team=' + response.response[0].id + "&" + player + '&season=2020';
+
+  // fetch(url2, options)
+  //   .then(response => response.json())
+  //   .then(response => {
+  //           console.log("player", response)      
         
         var averagePointsPerGame =  avgPoint(response.response)
         console.log(averagePointsPerGame);
@@ -33,7 +39,8 @@ fetch(url, options)
         var averageAstPerGame =  avgAst(response.response)
         console.log(averageAstPerGame);
         apg.textContent = averageAstPerGame
-   }) })
+  // }) 
+  })})
 
 function avgPoint(array){
     let sum = array.reduce(function (cumulativePoints,thisGame) {
