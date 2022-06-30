@@ -36,22 +36,22 @@ fetch(url, options)
    }) })
 
 function avgPoint(array){
-    let sum = array.reduce(function (x,y) {
-    return x + y.points
+    let sum = array.reduce(function (cumulativePoints,thisGame) {
+    return cumulativePoints + thisGame.points
   }, 0)
    return (sum/array.length).toFixed(2)
 }
 
 function avgReb(array){
-  let sum = array.reduce(function (x,y) {
-  return x + y.totReb
+  let sum = array.reduce(function (cumulativeRebounds,thisGame) {
+  return cumulativeRebounds + thisGame.totReb
   }, 0)
  return (sum/array.length).toFixed(2)
 }
 
 function avgAst(array){
-  let sum = array.reduce(function (x,y) {
-  return x + y.assists
+  let sum = array.reduce(function (cumulativeAssists,thisGame) {
+  return cumulativeAssists + thisGame.assists
   }, 0)
  return (sum/array.length).toFixed(2)
 }
