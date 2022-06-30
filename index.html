@@ -13,30 +13,71 @@
 
 <Header>
   <h1 class="text-8xl font-bold underline flex justify-center items-center text-orange-500 ">BallHog</h1>
+  <h2 class="text-white">Where NBA Player Stats and News Come Together for Your Game Time Decisions</h2>
 </Header>
 
 <body>
-  <div>
+  <div class="mt-10 text-2xl ">
     <h2>Select Your NBA Team</h2>
   </div>
 
-  <div>
+  <!-- <div>
     <form class="flex justify-center caret-orange-500 focuscaret-orange-500 text-orange-500" >
        <input type="text" placeholder="Enter Player Name">
         <button type="submit" style="color:orange-500">SUBMIT</button>
     </form>
+  </div> -->
+  <div>
+    <form class="flex justify-center text-black">
+      <label id="teamSelector"></label>
+      <select id="allTeams">
+          <option>---Select Here---</option>
+          <option value="Atlanta Hawks">Atlanta Hawks</option>
+          <option value="Boston Celtics">Boston Celtics</option>
+          <option value="Brooklyn Nets">Brooklyn Nets</option>
+          <option value="Charlotte Hornets">Charlotte Hornets</option>
+          <option value="Chicago Bulls">Chicago Bulls</option>
+          <option value="Cleveland Cavaliers">Cleveland Cavaliers</option>
+          <option value="Dalla Mavericks">Dallas Mavericks</option>
+          <option value="Denver Nuggets">Denver Nuggets</option>
+          <option value="Detroit Pistons">Detroit Pistons</option>
+          <option value="Golden State Warriors">Golden State Warriors</option>
+          <option value="Houston Rockets">Houston Rockets</option>
+          <option value="Indiana Pacers">Indiana Pacers</option>
+          <option value="Los Angeles Clippers">Los Angeles Clippers</option>
+          <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+          <option value="Memphis Grizzlies">Memphis Grizzlies</option>
+          <option value="Miami Heat">Miami Heat</option>
+          <option value="Milwaukee Bucks">Milwaukee Bucks</option>
+          <option value="Minnesota Timberwolves">Minnesota Timberwolves</option>
+          <option value="New Orleans Pelicans">New Orleans Pelicans</option>
+          <option value="New York Knicks">New York Knicks</option>
+          <option value="Oklahoma City Thunder">Oklahoma City Thunder</option>
+          <option value="Orlando Magic">Orlando Magic</option>
+          <option value="Philadelphia 76ers">Philadelphia 76ers</option>
+          <option value="Phoenix Suns">Phoenix Suns</option>
+          <option value="Portland Trail Blazers">Portland Trail Blazers</option>
+          <option value="Sacramento Kings">Sacramento Kings</option>
+          <option value="San Antonio Spurs">San Antonio Spurs</option>
+          <option value="Toronto Raptors">Toronto Raptors</option>
+          <option value="Utah Jazz">Utah Jazz</option>
+          <option value="Washington Wizards">Washington Wizards</option>
+      </select>
+    </form>
+      <div class="flex justify-center mt-8">
+        <button class="text-black bg-orange-500 rounded-full h-20 w-20">Let's Go!</button>
+      </div>
   </div>
-
-  <div class="flexSpaceAround">
+  <div class="flexSpaceAround hide">
     <div class="flexColumn">
       <div  style="color: #FA8320;">Points Per Game</div> 
       <div id="pointsPerGame" style="color:white"></div>
     </div>
-    <div class="flexColumn">
+    <div class="flexColumn hide">
       <div  style="color: #FA8320;">Rebounds Per Game</div> 
       <div id="reboundsPerGame" style="color:white"></div>
     </div>
-    <div class="flexColumn"> 
+    <div class="flexColumn hide"> 
       <div  style="color: #FA8320;">Assists Per Game</div> 
       <div id="assistsPerGame" style="color:white"></div>
     </div>   

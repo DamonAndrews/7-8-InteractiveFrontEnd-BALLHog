@@ -1,9 +1,15 @@
 var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
+<<<<<<< HEAD
 var team = "Los Angeles Lakers";
 var player = 'Booker';
+=======
+var team = 'Phoenix Suns';
+var player = "Booker";
+>>>>>>> edd69038a05cb53ae3fc36c588b4351e9719d044
 var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
+var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
 const options = {
     method: 'GET',
     headers: {
@@ -14,13 +20,34 @@ const options = {
 fetch(teamSearchurl, options)
     .then(response => response.json())
     .then(response => {
-    console.log(response)
-    var url = 'https://api-nba-v1.p.rapidapi.com/players/statistics?team=' + response.response[0].id + '&season=2020';
+    console.log("team",response)
+
   
-fetch(url, options)
+fetch(player, options)
     .then(response => response.json())
     .then(response => {
-        console.log(response)
+        console.log("Players",response)
+
+    
+    var url = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id + //response.response[0].id;
+  
+  fetch(url, options)
+    .then(response => response.json())
+    .then(response => {
+        console.log("allGamesofAllPlayers",response)
+
+
+  
+
+
+
+
+  //       var url2 = 'https://api-nba-v1.p.rapidapi.com/players/statistics?team=' + response.response[0].id + "&" + player + '&season=2020';
+
+  // fetch(url2, options)
+  //   .then(response => response.json())
+  //   .then(response => {
+  //           console.log("player", response)      
         
         var averagePointsPerGame =  avgPoint(response.response)
         console.log(averagePointsPerGame);
@@ -33,7 +60,8 @@ fetch(url, options)
         var averageAstPerGame =  avgAst(response.response)
         console.log(averageAstPerGame);
         apg.textContent = averageAstPerGame
-   }) })
+  // }) 
+  })})})
 
 function avgPoint(array){
     let sum = array.reduce(function (cumulativePoints,thisGame) {
