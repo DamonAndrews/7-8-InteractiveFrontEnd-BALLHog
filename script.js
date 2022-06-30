@@ -1,35 +1,58 @@
+const options = {
+  method: 'GET',
+  headers: {
+      'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
+      "X-RapidAPI-Host": 'api-nba-v1.p.rapidapi.com'
+  }
+}
+
 var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
 var team = 'Phoenix Suns';
 var player = "Booker";
-var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
-var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
-        "X-RapidAPI-Host": 'api-nba-v1.p.rapidapi.com'
-    }
-  }
-fetch(teamSearchurl, options)
+
+var teamIdSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
+
+// var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
+
+var url = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id + //response.response[0].id;
+
+
+  
+// Fetch the team Array//To get team ID
+fetch(teamIdSearchUrl, options)
     .then(response => response.json())
     .then(response => {
     console.log("team",response)
 
+//Creates a variable with the Team ID, a URL
+  var teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id 
   
-fetch(player, options)
+var superIndivPlayerSearch = 'https://api-nba-v1.p.rapidapi.com/players/statistics?id=
+
+var extraPart = &team=1&season=2021
+
+//Fetch the new URL from above to display all info for the specific team
+fetch(teamSearchUrl, options)
     .then(response => response.json())
     .then(response => {
-        console.log("Players",response)
+      console.log("allGamesofAllPlayers",response)
+
+//Creates a variable/Fetchable URL with the player's last name
+
+
+
+//Feth the new URL from above to display all info for the specific player
+fetch(indivPlayerSearch, options)
+    .then(response => response.json())
+    .then(response => {
+      console.log("Players",response)
 
     
-    var url = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id + //response.response[0].id;
+      
   
-  fetch(url, options)
-    .then(response => response.json())
-    .then(response => {
-        console.log("allGamesofAllPlayers",response)
+
 
 
   
