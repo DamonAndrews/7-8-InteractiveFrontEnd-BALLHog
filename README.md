@@ -1,8 +1,6 @@
 # AwesomeGroupProject1
 
-
 Hi Team
-
 
 I love javascript 
 
@@ -31,6 +29,5 @@ Akira- HTML
 Alex- CSS (Tailwind, Materialize)
 Damon- JS
 Jeff- Web APIs (possible split)
-
 
 

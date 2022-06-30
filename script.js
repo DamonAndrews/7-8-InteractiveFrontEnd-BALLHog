@@ -9,19 +9,14 @@ const options = {
 var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
+
 var team = 'Phoenix Suns';
 var player = "Booker";
 
-var teamIdSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
-
+var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
 var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
 
-var url = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id + //response.response[0].id;
-
-
-  
-// Fetch the team Array//To get team ID
-fetch(teamIdSearchUrl, options)
+fetch(teamSearchurl, options)
     .then(response => response.json())
     .then(response => {
     console.log("team",response)
@@ -29,9 +24,6 @@ fetch(teamIdSearchUrl, options)
 //Creates a variable with the Team ID, a URL
   var teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/players/statistics?season=2021&team=' + response.response[0].id 
   
-var superIndivPlayerSearch = 'https://api-nba-v1.p.rapidapi.com/players/statistics?id=
-
-var extraPart = &team=1&season=2021
 
 //Fetch the new URL from above to display all info for the specific team
 // fetch(teamSearchUrl, options)
@@ -41,29 +33,14 @@ var extraPart = &team=1&season=2021
 
 //Creates a variable/Fetchable URL with the player's last name
 
+var searchOnePlayerbyTeamandSeason = "https://api-nba-v1.p.rapidapi.com/players/statistics?id="
++ response.response[0].player.id + "&team=" + response.response[0].team.id + "&season=2021"
 
 //Feth the new URL from above to display all info for the specific player
-fetch(, options)
+fetch(searchOnePlayerbyTeamandSeason, options)
     .then(response => response.json())
     .then(response => {
-      console.log("Players",response)
-    
-      
-  
-
-
-
-  
-
-
-
-
-  //       var url2 = 'https://api-nba-v1.p.rapidapi.com/players/statistics?team=' + response.response[0].id + "&" + player + '&season=2020';
-
-  // fetch(url2, options)
-  //   .then(response => response.json())
-  //   .then(response => {
-  //           console.log("player", response)      
+      console.log("Players",response)   
         
         var averagePointsPerGame =  avgPoint(response.response)
         console.log(averagePointsPerGame);
@@ -77,7 +54,7 @@ fetch(, options)
         console.log(averageAstPerGame);
         apg.textContent = averageAstPerGame
   // }) 
-  })})})
+  })})
 
 function avgPoint(array){
     let sum = array.reduce(function (cumulativePoints,thisGame) {

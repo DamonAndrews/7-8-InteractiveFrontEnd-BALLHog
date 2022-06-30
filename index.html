@@ -6,33 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-              }
-            }
-          }
-        }
-      </script>
+    <link rel="stylesheet" href="./dist/output.css"/>
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <title>BallHog</title>
 </head>
 
+<Header>
+  <h1 class="text-8xl font-bold underline flex justify-center items-center text-orange-500 ">BallHog</h1>
+  <h2 class="text-white">Where NBA Player Stats and News Come Together for Your Game Time Decisions</h2>
+</Header>
+
 <body>
-    
-<h2>BallHog</h2>
+  <div class="mt-10 text-2xl ">
+    <h2>Select Your NBA Team</h2>
+  </div>
 
-<form class="flexCenter" >
-  <textarea id="name" class=“caret-orange-500 focus:caret-orange-500”></textarea>
-  <button type="submit" style="color:white" >SUBMIT</button>
-</form>
-
+  <!-- <div>
+    <form class="flex justify-center caret-orange-500 focuscaret-orange-500 text-orange-500" >
+       <input type="text" placeholder="Enter Player Name">
+        <button type="submit" style="color:orange-500">SUBMIT</button>
+    </form>
+  </div> -->
   <div>
-      <label id="teamSelector">Choose A Team</label>
+    <form class="flex justify-center text-black">
+      <label id="teamSelector"></label>
       <select id="allTeams">
+          <option>---Select Here---</option>
           <option value="Atlanta Hawks">Atlanta Hawks</option>
           <option value="Boston Celtics">Boston Celtics</option>
           <option value="Brooklyn Nets">Brooklyn Nets</option>
@@ -64,18 +63,21 @@
           <option value="Utah Jazz">Utah Jazz</option>
           <option value="Washington Wizards">Washington Wizards</option>
       </select>
-
+    </form>
+      <div class="flex justify-center mt-8">
+        <button class="text-black bg-orange-500 rounded-full h-20 w-20">Let's Go!</button>
+      </div>
   </div>
-  <div class="flexSpaceAround">
+  <div class="flexSpaceAround hide">
     <div class="flexColumn">
       <div  style="color: #FA8320;">Points Per Game</div> 
       <div id="pointsPerGame" style="color:white"></div>
     </div>
-    <div class="flexColumn">
+    <div class="flexColumn hide">
       <div  style="color: #FA8320;">Rebounds Per Game</div> 
       <div id="reboundsPerGame" style="color:white"></div>
     </div>
-    <div class="flexColumn"> 
+    <div class="flexColumn hide"> 
       <div  style="color: #FA8320;">Assists Per Game</div> 
       <div id="assistsPerGame" style="color:white"></div>
     </div>   
