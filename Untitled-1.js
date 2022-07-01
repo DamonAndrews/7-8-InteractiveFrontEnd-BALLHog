@@ -3,16 +3,30 @@ const options = {
     headers: {
         'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
         "X-RapidAPI-Host": 'api-nba-v1.p.rapidapi.com'
-    }
+    }}
+const options2 ={
+        method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
+		'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
+	}
 }
+
   
     var ppg = document.getElementById("pointsPerGame");
     var rpg = document.getElementById("reboundsPerGame");
     var apg = document.getElementById("assistsPerGame");
   
-    var team = 'Phoenix Suns';
-    var player = "Booker";
-  
+    let team = 'Brooklyn Nets';
+    var fullNameSplit = team.split(" ");
+    let nameSplit = fullNameSplit[1].toLowerCase();
+    
+    
+    console.log(nameSplit)
+    
+    var player = "durant";
+    var allPlayersList ;
+
     var teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team; 
   
     fetch(teamSearchUrl, options)
@@ -76,17 +90,35 @@ function avg(array , property){
     fetch(allPlayersListUrl, options)
         .then(response => response.json())
         .then(response => {
-        console.log("All players on team", response)   
+        console.log("All players on team", response);
         
-        // var allPlayersOnTeam = allPlayers(response.response.lastname)
+        var playersArray = response.response; 
+        console.log(playersArray);   
 
-        // console.log("All players on team" , allPlayersOnTeam)
+        
+        var allPlayersOnTeam = allPlayers(playersArray)
+
+        console.log("All names of players list" , allPlayersOnTeam)
 
 })})
 
-// function allPlayers (array){
-//     let sum = array.reduce(function(cumulativePlayersNames, Players){  
-        // return cumulativePlayersNames + Players.response.response[0].lastname
-//         }, 0)
-//         return (sum)
-// }
+function allPlayers (array){
+
+    var allPlayersList = [];
+    
+    for(let i = 0; i < array.length; i++) {
+        allPlayersList.push(array[i].lastname);
+        console.log(array[i].lastname);
+    }
+    console.log(allPlayersList);
+    return allPlayersList
+}
+
+var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit
+
+fetch(newsArticle, options2)
+.then(response => response.json())
+.then(response => {
+console.log("news", response)
+
+})
