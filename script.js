@@ -9,7 +9,7 @@ const options = {
 var ppg = document.getElementById("pointsPerGame");
 var rpg = document.getElementById("reboundsPerGame");
 var apg = document.getElementById("assistsPerGame");
-
+var goBtn = document.getElementById("goBtn");
 var team = 'Phoenix Suns';
 var player = "Booker";
 
