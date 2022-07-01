@@ -5,11 +5,13 @@ const options = {
         "X-RapidAPI-Host": 'api-nba-v1.p.rapidapi.com'
     }
 }
-  
+    var startBtn = document.getElementById("goBtn")
     var ppg = document.getElementById("pointsPerGame");
     var rpg = document.getElementById("reboundsPerGame");
     var apg = document.getElementById("assistsPerGame");
-  
+    var bpg = document.getElementById("blocksPerGame")
+    var spg = document.getElementById("stealsPerGame")
+
     var team = 'Phoenix Suns';
     var player = "Booker";
   
@@ -52,11 +54,11 @@ const options = {
 
             var averageBlocksPerGame =  avg(response.response, "blocks")
                 console.log("bpg" , averageBlocksPerGame);
-                apg.textContent = averageBlocksPerGame
+                bpg.textContent = averageBlocksPerGame
 
             var averageStealsPerGame =  avg(response.response, "steals")
                 console.log("spg" , averageStealsPerGame);
-                apg.textContent = averageStealsPerGame
+                spg.textContent = averageStealsPerGame
 })})})
 
 function avg(array , property){
