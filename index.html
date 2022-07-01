@@ -17,17 +17,11 @@
 </Header>
 
 <body>
-  <div class="mt-10 text-2xl ">
+  <div class="mt-10 text-2xl hide">
     <h2>Select Your NBA Team</h2>
   </div>
 
-  <!-- <div>
-    <form class="flex justify-center caret-orange-500 focuscaret-orange-500 text-orange-500" >
-       <input type="text" placeholder="Enter Player Name">
-        <button type="submit" style="color:orange-500">SUBMIT</button>
-    </form>
-  </div> -->
-  <div>
+  <div class="hide">
     <form class="flex justify-center text-black">
       <label id="teamSelector"></label>
       <select id="allTeams">
@@ -68,7 +62,8 @@
         <button id="goBtn" class="text-black bg-orange-500 rounded-full h-20 w-20">Let's Go!</button>
       </div>
   </div>
-  <div class="flexSpaceAround hide">
+
+  <section class="flexSpaceAround hide">
     <div class="flexColumn">
       <div  style="color: #FA8320;">Points Per Game</div> 
       <div id="pointsPerGame" style="color:white"></div>
@@ -81,7 +76,46 @@
       <div  style="color: #FA8320;">Assists Per Game</div> 
       <div id="assistsPerGame" style="color:white"></div>
     </div>   
-  </di>
+  </section>
+
+  <section class="flex">
+    <div>
+      <h3 id="teamName" class="text-orange-500 text-3xl mt-5 ml-5 pr-5 underline ">Phoenix Suns Players:</h3>
+        <ul class="ml-5 text-white text-2xl">
+          <li>Devin Booker</li>
+          <li>Devin Booker</li>
+          <li>Devin Booker</li>
+          <li>Devin Booker</li>
+          <li>Devin Booker</li>
+          <li>Devin Booker</li>
+          <li>Devin Booker</li>
+        </ul>
+    </div>    
+    <aside id="playerTitle" class="block text-orange-500 ml-20 mt-5 pl-5 underline text-3xl border-l-2 border-orange-500 ">
+      <h3>NBA Player Stats and News</h3>
+      <h3 class="text-white">Devin Booker</h3>
+      <br>
+      <div class="flexColumn">
+        <div  style="color: white;">Points Per Game:</div> 
+        <div id="pointsPerGame" style="color:white"></div>
+      </div>
+      <br>
+      <div class="flexColumn">
+        <div  style="color: white;">Rebounds Per Game:</div> 
+        <div id="reboundsPerGame" style="color:white"></div>
+      </div>
+      <br>
+      <div class="flexColumn"> 
+        <div  style="color: white;">Assists Per Game:</div> 
+        <div id="assistsPerGame" style="color:white"></div>
+      </div>  
+    </aside>
+  </section>
+
+  <section class="flex">
+    <button class="text-white mt-20 ml-5 bg-orange-500 rounded-md px-2">Select New Team</button>
+  </section>
+
     <script src="./script.js"></script>
 </body>
 
