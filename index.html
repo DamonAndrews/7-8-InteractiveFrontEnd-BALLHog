@@ -16,15 +16,16 @@
   <h2 class="flex-wrap text-white">Where NBA Player Stats and News Come Together for Your Game Time Decisions</h2>
 </Header>
 
-<div>
-  <div class="mt-10 text-2xl hide">
-    <h2>Select Your NBA Team</h2>
-  </div>
+<body>
+  <div id="openingPage">
+    <div class="mt-10 text-2xl">
+      <h2>Select Your NBA Team</h2>
+    </div>
 
-  <div class="hide">
-    <form class="flex justify-center text-black">
-      <label id="teamSelector"></label>
-      <select id="allTeams">
+    <div>
+      <form class="flex justify-center text-black">
+       <label id="teamSelector"></label>
+        <select id="allTeams">
           <option>---Select Here---</option>
           <option value="Atlanta Hawks">Atlanta Hawks</option>
           <option value="Boston Celtics">Boston Celtics</option>
@@ -56,69 +57,57 @@
           <option value="Toronto Raptors">Toronto Raptors</option>
           <option value="Utah Jazz">Utah Jazz</option>
           <option value="Washington Wizards">Washington Wizards</option>
-      </select>
-    </form>
-      <div class="flex justify-center mt-8">
-        <button id="goBtn" class="text-black bg-orange-500 rounded-full h-20 w-20">Let's Go!</button>
-      </div>
-  </div>
-
-  <section class="flex">
-    <div>
-      <h3 id="teamName" class="text-orange-500 text-3xl mt-5 ml-5 pr-5 underline ">Phoenix Suns Players:</h3>
-        <ul class="ml-5 text-white text-2xl">
-          <li>Devin Booker</li>
-          <li>Devin Booker</li>
-          <li>Devin Booker</li>
-          <li>Devin Booker</li>
-          <li>Devin Booker</li>
-          <li>Devin Booker</li>
-          <li>Devin Booker</li>
-        </ul>
+        </select>
+       </form>
+        <div class="flex justify-center mt-8">
+          <button id="goBtn" class="text-black bg-orange-500 rounded-full h-20 w-20">Let's Go!</button>
+        </div>
     </div>    
-    <aside id="playerTitle" class="block text-orange-500 ml-20 mt-5 pl-5 text-3xl border-l-2 border-orange-500 ">
-      <h3>NBA Player Stats and News</h3>
-      <h3 class="text-white text-5xl">Devin Booker</h3>
-      <br>
-      <div class="flexColumn">
-        <div style="color: white;">Points Per Game:</div> 
-        <div id="pointsPerGame" style="color:white"></div>
-      </div>
-      <br>
-      <div class="flexColumn">
-        <div  style="color: white;">Rebounds Per Game:</div> 
-        <div id="reboundsPerGame" style="color:white"></div>
-      </div>
-      <br>
-      <div class="flexColumn"> 
-        <div  style="color: white;">Assists Per Game:</div> 
-        <div id="assistsPerGame" style="color:white"></div>
-      </div> 
-      <br>
-      <div class="flexColumn"> 
-        <div  style="color: white;">Blocks Per Game:</div> 
-        <div id="blocksPerGame" style="color:white"></div>
-      </div>  
-      <br>
-      <div class="flexColumn"> 
-        <div  style="color: white;">Steals Per Game:</div> 
-        <div id="stealsPerGame" style="color:white"></div>
-      </div>   
-    </aside>
-  </section>
+  </div>
 
   <section class="flex">
-    <button class="text-white mt-20 ml-5 bg-orange-500 rounded-md px-2">Select New Team</button>
+    <div id="showTime1" class="hide">
+      <h3 id="teamName" class="text-orange-500 text-3xl mt-5 ml-5 pr-5 underline "></h3>
+        <ul id="ballers" class="ml-5 text-white text-2xl">
+        </ul>
+    </div>
+
+    <div id="showTime2" class="hide">    
+      <aside id="playerTitle" class="block text-orange-500 ml-20 mt-5 pl-5 text-3xl border-l-2 border-orange-500">
+       <h3>NBA Player Stats and News</h3>
+        <h3 class="text-white text-5xl">Devin Booker</h3>
+        <br>
+        <div class="flexColumn">
+          <div style="color: white;">Points Per Game:</div> 
+          <div id="pointsPerGame" style="color:white"></div>
+        </div>
+        <br>
+        <div class="flexColumn">
+          <div  style="color: white;">Rebounds Per Game:</div> 
+          <div id="reboundsPerGame" style="color:white"></div>
+        </div>
+        <br>
+        <div class="flexColumn"> 
+          <div  style="color: white;">Assists Per Game:</div> 
+          <div id="assistsPerGame" style="color:white"></div>
+        </div> 
+        <br>
+        <div class="flexColumn"> 
+          <div  style="color: white;">Blocks Per Game:</div> 
+          <div id="blocksPerGame" style="color:white"></div>
+        </div>  
+        <br>
+        <div class="flexColumn"> 
+          <div  style="color: white;">Steals Per Game:</div> 
+          <div id="stealsPerGame" style="color:white"></div>
+        </div>   
+      </aside>
+    </div>
   </section>
     
-
-    
-    </div> 
-
-
-    <script src="./Untitled-1.js"></script>
-  </div>
-  
+<div>  
+  <script src="./Untitled-1.js"></script>
+</div>  
 </body>
 
 
