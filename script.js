@@ -16,6 +16,14 @@ var player = "Booker";
 var teamSearchurl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
 var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
 
+var teamIdSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
+
+// var playerSearchurl = "https://api-nba-v1.p.rapidapi.com/players?&team=28&season=2021&id=" + player;
+
+  
+// Fetch the team Array//To get team ID
+fetch(teamIdSearchUrl, options)
+
 fetch(teamSearchurl, options)
     .then(response => response.json())
     .then(response => {
