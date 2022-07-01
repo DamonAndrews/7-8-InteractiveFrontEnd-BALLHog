@@ -553,11 +553,15 @@ video {
 
 body {
   background-image: url("https://cdn.pixabay.com/photo/2020/07/14/16/59/basketball-5404905_960_720.jpg");
+  background-repeat: no-repeat ;
+  background-size: cover;
 }
 
 header {
   background-image: url("https://cdn.pixabay.com/photo/2019/10/18/15/41/basketball-4559472_960_720.jpg");
   background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin-right: 10px;
   height: 150px;
 }
