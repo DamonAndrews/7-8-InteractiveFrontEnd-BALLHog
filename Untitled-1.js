@@ -3,15 +3,28 @@ const options = {
     headers: {
         'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
         "X-RapidAPI-Host": 'api-nba-v1.p.rapidapi.com'
-    }
+    }}
+const options2 ={
+        method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
+		'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
+	}
 }
+
   
     var ppg = document.getElementById("pointsPerGame");
     var rpg = document.getElementById("reboundsPerGame");
     var apg = document.getElementById("assistsPerGame");
   
-    var team = 'Phoenix Suns';
-    var player = "Booker";
+    let team = 'Brooklyn Nets';
+    var fullNameSplit = team.split(" ");
+    let nameSplit = fullNameSplit[1].toLowerCase();
+    
+    
+    console.log(nameSplit)
+    
+    var player = "durant";
     var allPlayersList ;
 
     var teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team; 
@@ -78,7 +91,8 @@ function avg(array , property){
         .then(response => response.json())
         .then(response => {
         console.log("All players on team", response);
-        let playersArray = response.response; 
+        
+        var playersArray = response.response; 
         console.log(playersArray);   
 
         
@@ -99,3 +113,12 @@ function allPlayers (array){
     console.log(allPlayersList);
     return allPlayersList
 }
+
+var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit
+
+fetch(newsArticle, options2)
+.then(response => response.json())
+.then(response => {
+console.log("news", response)
+
+})
