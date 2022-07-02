@@ -82,16 +82,15 @@ function allPlayers (array){
     
     for(let i = 0; i < array.length; i++) {
         allPlayersList.push(array[i].lastname);
-        console.log(array[i].lastname);
     }
-    console.log(allPlayersList);
+        console.log(allPlayersList);
     
     for (let i = 0; i < allPlayersList.length; i++) {
         let li = document.createElement("li");
         li.innerHTML = allPlayersList[i];
         ballers.appendChild(li);
-      }
-      return allPlayersList
+    }
+        return allPlayersList
 }}
     
     
@@ -146,13 +145,10 @@ function avg(array , property){
         return (sum/array.length).toFixed(2)
 }
 
-
-
 var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit
 
-fetch(newsArticle, options2)
-.then(response => response.json())
-.then(response => {
-console.log("news", response)
-
+    fetch(newsArticle, options2)
+    .then(response => response.json())
+    .then(response => {
+    console.log("news", response)
 })
