@@ -113,6 +113,7 @@ function allPlayers (array){
         allPlayersList.push(array[i].lastname);
         console.log(array[i].lastname);
     }
+
     console.log(allPlayersList);
     return allPlayersList
 }
