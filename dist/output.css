@@ -558,11 +558,11 @@ body {
 }
 
 header {
-  background-image: url("https://cdn.pixabay.com/photo/2019/10/18/15/41/basketball-4559472_960_720.jpg");
+  /* background-image: url("https://cdn.pixabay.com/photo/2019/10/18/15/41/basketball-4559472_960_720.jpg"); */
+  background-color: black;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 10px;
   height: 150px;
 }
 
