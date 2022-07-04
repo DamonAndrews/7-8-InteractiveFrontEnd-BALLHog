@@ -28,9 +28,9 @@ const options2 ={
     var openingPage = document.querySelector("#openingPage");
     var body = document.querySelector(".body");
     var newTeam = document.querySelector("#newTeam");
-    var individual = document.querySelector("#individual");
+    var playerText = document.querySelector("#playerText");
     
-    var player = "James";
+    var player = "";
     var allPlayersList ;
 
     var teamSearchUrl;
@@ -41,6 +41,8 @@ sportsTeam.addEventListener("change", function() {
     teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
     nbaTeam.textContent = sportsTeam.value;
 })    
+
+
 
 
 
@@ -73,7 +75,7 @@ function tipOff() {
 
         console.log("All names of players list" , allPlayersOnTeam)
 
-        getNews();
+        
 
 })})
 
@@ -96,13 +98,23 @@ function allPlayers (array){
         ballers.appendChild(li);
 
         function clicks() {
-            console.log(allPlayersList[i]);
+            playerText.textContent = allPlayersList[i];
+            showTime1.classList.add('hide');
+
+            playerText.addEventListener("click", function() {
+                player = playerText.textContent
+                
+            })  
+            getNews();
+            teamSearch();
         }
       }
-      teamSearch();
-      
       return allPlayersList;
 }}
+
+
+
+
  
 
 
@@ -111,6 +123,7 @@ function teamSearch () {
         .then(response => response.json())
         .then(response => {
         console.log("team info",response)
+        console.log(player);
 
             var responseTeam = response.response[0].id  
 
@@ -160,10 +173,10 @@ function avg(array , property){
 }
 
 function getNews() {
-    let team = nbaTeam.textContent;
-    var fullNameSplit = team.split(" ");
-    let nameSplit = fullNameSplit[1][2];
-    var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit;
+    // let team = nbaTeam.textContent;
+    // var fullNameSplit = team.split(" ");
+    // let nameSplit = fullNameSplit[1];
+    var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/player/' + player;
 
     fetch(newsArticle, options2)
     .then(response => response.json())
