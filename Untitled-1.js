@@ -92,10 +92,11 @@ function allPlayers (array){
         li.innerHTML = allPlayersList[i];
         ballers.appendChild(li);
       }
+      teamSearch();
       return allPlayersList;
 }}
     
-    
+function teamSearch () { 
     fetch(teamSearchUrl, options)
         .then(response => response.json())
         .then(response => {
@@ -146,7 +147,7 @@ function avg(array , property){
     }, 0)
         return (sum/array.length).toFixed(2)
 }
-
+}
 
 
 var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit;
