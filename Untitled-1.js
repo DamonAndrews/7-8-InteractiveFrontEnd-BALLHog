@@ -84,9 +84,8 @@ function allPlayers (array){
     
     for(let i = 0; i < array.length; i++) {
         allPlayersList.push(array[i].lastname);
-        console.log(array[i].lastname);
     }
-    console.log(allPlayersList);
+        console.log(allPlayersList);
     
     for (let i = 0; i < allPlayersList.length; i++) {
         let li = document.createElement("li");
@@ -169,3 +168,4 @@ function pickNew() {
     body.classList.add("body");
     ballers.innerHTML = "";
 }
+
