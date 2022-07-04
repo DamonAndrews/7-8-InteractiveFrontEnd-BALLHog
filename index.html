@@ -11,12 +11,12 @@
     <title>BallHog</title>
 </head>
 
-<Header>
+<Header class="border-b-2 border-orange-500">
   <h1 class="text-8xl font-bold underline flex justify-center items-center text-orange-500 ">BallHog</h1>
   <h2 class="flex-wrap text-white text-2xl">Where NBA Player Stats and News Come Together for Your Game Time Decisions</h2>
 </Header>
 
-<body>
+<body class="body">
   <div id="openingPage">
     <div class="mt-10 mb-5 text-5xl">
       <h2>Select Your NBA Team</h2>
@@ -60,20 +60,21 @@
         </select>
        </form>
         <div class="flex justify-center mt-8">
-          <button id="goBtn" class="text-black text-3xl bg-orange-500 rounded-full h-40 w-40">Let's Go!</button>
+          <button id="goBtn" class="text-black text-3xl bg-orange-500 rounded-full h-40 w-40 hover:bg-orange-300">Let's Go!</button>
         </div>
     </div>    
   </div>
 
-  <section class="flex">
+  <section class="flex justify-center">
     <div id="showTime1" class="hide">
-      <h3 id="teamName" class="text-orange-500 text-3xl mt-5 ml-5 pr-5 underline "></h3>
-        <ul id="ballers" class="ml-5 text-white text-2xl">
+      <h3 id="teamName" class="text-orange-500 text-4xl mt-5 ml-5 pr-5"></h3>
+      <button id="newTeam" class="text-black text-2xl bg-orange-500 rounded ml-5 mt-2 mb-2 hover:bg-orange-300">-Select New Team-</button>
+        <ul id="ballers" class="ml-5 text-white text-3xl">
         </ul>
     </div>
 
     <div id="showTime2" class="hide">    
-      <aside id="playerTitle" class="block text-orange-500 ml-20 mt-5 pl-5 text-3xl border-l-2 border-orange-500">
+      <aside id="playerTitle" class="block text-orange-500 ml-20 mt-5 pl-5 text-4xl border-l-2 border-orange-500">
        <h3>NBA Player Stats and News</h3>
         <h3 class="text-white text-5xl">Devin Booker</h3>
         <br>
@@ -100,6 +101,10 @@
         <div class="flexColumn"> 
           <div  style="color: white;">Steals Per Game:</div> 
           <div id="stealsPerGame" style="color:white"></div>
+        </div>
+        <br>
+        <div class="border-t-2 border-orange-500 pt-5">
+          <h3>Team News</h3>
         </div>   
       </aside>
     </div>

@@ -552,9 +552,8 @@ video {
 }
 
 body {
-  background-image: url("https://cdn.pixabay.com/photo/2020/07/14/16/59/basketball-5404905_960_720.jpg");
-  background-repeat: no-repeat ;
-  background-size: cover;
+  
+  background-color: black;
 }
 
 header {
@@ -578,3 +577,8 @@ h2 {
   display: none;
 }
 
+.body {
+  background-image: url("https://cdn.pixabay.com/photo/2020/07/14/16/59/basketball-5404905_960_720.jpg");
+  background-repeat: no-repeat ;
+  background-size: cover;
+}
