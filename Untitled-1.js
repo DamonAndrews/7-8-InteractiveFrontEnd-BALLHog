@@ -27,7 +27,8 @@ const options2 ={
     let nameSplit = fullNameSplit[1].toLowerCase();
     var nbaTeam = document.getElementById("teamName");
     var openingPage = document.querySelector("#openingPage");
-
+    var body = document.querySelector(".body");
+    var newTeam = document.querySelector("#newTeam");
     console.log(nameSplit)
     
     var player = "durant";
@@ -50,6 +51,7 @@ function tipOff() {
     showTime1.classList.remove("hide");
     showTime2.classList.remove("hide");
     openingPage.classList.add("hide");
+    body.classList.remove("body");
     
 
     fetch(teamSearchUrl, options)
@@ -89,8 +91,8 @@ function allPlayers (array){
         let li = document.createElement("li");
         li.innerHTML = allPlayersList[i];
         ballers.appendChild(li);
-    }
-        return allPlayersList
+      }
+      return allPlayersList;
 }}
     
     
@@ -145,10 +147,24 @@ function avg(array , property){
         return (sum/array.length).toFixed(2)
 }
 
-var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit
 
-    fetch(newsArticle, options2)
-    .then(response => response.json())
-    .then(response => {
-    console.log("news", response)
+
+var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit;
+
+fetch(newsArticle, options2)
+.then(response => response.json())
+.then(response => {
+console.log("news", response)
+
 })
+
+newTeam.addEventListener("click", pickNew)
+
+function pickNew() {
+    showTime1.classList.add("hide");
+    showTime2.classList.add("hide");
+    openingPage.classList.remove("hide");
+    body.classList.add("body");
+    ballers.innerHTML = "";
+}
+
