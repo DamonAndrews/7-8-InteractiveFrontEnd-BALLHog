@@ -28,9 +28,9 @@ const options2 ={
     var openingPage = document.querySelector("#openingPage");
     var body = document.querySelector(".body");
     var newTeam = document.querySelector("#newTeam");
+    var individual = document.querySelector("#individual");
     
-    
-    var player = "durant";
+    var player = "James";
     var allPlayersList ;
 
     var teamSearchUrl;
@@ -73,7 +73,7 @@ function tipOff() {
 
         console.log("All names of players list" , allPlayersOnTeam)
 
-     
+        getNews();
 
 })})
 
@@ -88,14 +88,24 @@ function allPlayers (array){
     
     for (let i = 0; i < allPlayersList.length; i++) {
         let li = document.createElement("li");
+        if (i == [i]) {
+        li.className = 'clickable',
+        li.onclick = clicks;
+        }
         li.innerHTML = allPlayersList[i];
         ballers.appendChild(li);
+
+        function clicks() {
+            console.log(allPlayersList[i]);
+        }
       }
       teamSearch();
-      getNews();
+      
       return allPlayersList;
 }}
-    
+ 
+
+
 function teamSearch () { 
     fetch(teamSearchUrl, options)
         .then(response => response.json())
@@ -152,7 +162,7 @@ function avg(array , property){
 function getNews() {
     let team = nbaTeam.textContent;
     var fullNameSplit = team.split(" ");
-    let nameSplit = fullNameSplit[1].toLowerCase();
+    let nameSplit = fullNameSplit[1][2];
     var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit;
 
     fetch(newsArticle, options2)
@@ -170,5 +180,11 @@ function pickNew() {
     openingPage.classList.remove("hide");
     body.classList.add("body");
     ballers.innerHTML = "";
+    ppg.textContent = "";
+    rpg.textContent = "";
+    apg.textContent = "";
+    bpg.textContent = "";
+    spg.textContent = "";
+
 }
 
