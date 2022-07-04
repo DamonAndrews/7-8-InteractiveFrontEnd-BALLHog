@@ -6,8 +6,8 @@ const options = {
     }}
 const options2 ={
         method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '76793e784dmshefceec1f7ea5020p1ffaf5jsn59003a39243a',
+	    headers: {
+		'X-RapidAPI-Key': 'dc01470c37msh860345accc525e5p135c00jsna4a6ff9fcdc8',
 		'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
 	}
 }
@@ -22,14 +22,13 @@ const options2 ={
     var showTime2 = document.querySelector("#showTime2");
     var sportsTeam = document.querySelector("#allTeams");
     var ballers = document.getElementById("ballers");
-    let team = " ";
-    var fullNameSplit = team.split(" ");
-    let nameSplit = fullNameSplit[1].toLowerCase();
+    
+   
     var nbaTeam = document.getElementById("teamName");
     var openingPage = document.querySelector("#openingPage");
     var body = document.querySelector(".body");
     var newTeam = document.querySelector("#newTeam");
-    console.log(nameSplit)
+    
     
     var player = "durant";
     var allPlayersList ;
@@ -93,6 +92,7 @@ function allPlayers (array){
         ballers.appendChild(li);
       }
       teamSearch();
+      getNews();
       return allPlayersList;
 }}
     
@@ -149,15 +149,18 @@ function avg(array , property){
 }
 }
 
+function getNews() {
+    let team = nbaTeam.textContent;
+    var fullNameSplit = team.split(" ");
+    let nameSplit = fullNameSplit[1].toLowerCase();
+    var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit;
 
-var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/team/' + nameSplit;
+    fetch(newsArticle, options2)
+    .then(response => response.json())
+    .then(response => {
+    console.log("news", response)
 
-fetch(newsArticle, options2)
-.then(response => response.json())
-.then(response => {
-console.log("news", response)
-
-})
+})}
 
 newTeam.addEventListener("click", pickNew)
 
