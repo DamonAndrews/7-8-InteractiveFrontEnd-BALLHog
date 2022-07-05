@@ -175,7 +175,7 @@ function allNews (array){
     var allNewsList = [];
     
     for(let i = 0; i < array.length; i++) {
-        allNewsList.push(array[i].title);
+        allNewsList.push(array[i].url);
     }
         console.log("list of URL's" , allNewsList);
     
