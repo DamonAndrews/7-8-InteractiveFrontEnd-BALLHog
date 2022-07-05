@@ -99,6 +99,7 @@ function allPlayers (array){
 
         function clicks() {
             playerText.textContent = allPlayersList[i];
+            player = playerText.textContent;
             showTime1.classList.add('hide');
 
             playerText.addEventListener("click", function() {
@@ -198,6 +199,7 @@ function pickNew() {
     apg.textContent = "";
     bpg.textContent = "";
     spg.textContent = "";
+    playerText.textContent = "";
 
 }
 
