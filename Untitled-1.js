@@ -179,9 +179,10 @@ function allNews (array){
         console.log("list of URL's" , allNewsList);
     
     for (let i = 0; i < allNewsList.length; i++) {
-        let li = document.createElement("li");
-        li.innerHTML = allNewsList[i];
-        news.appendChild(li);
+        var a = document.createElement("a");
+        a.textContent = allNewsList[i];
+        a.setAttribute("href" , allNewsList[i]);
+        news.appendChild(a);
  }   }
 
 newTeam.addEventListener("click", pickNew)
