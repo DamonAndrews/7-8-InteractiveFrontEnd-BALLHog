@@ -26,6 +26,7 @@ const options2 ={
     var news = document.getElementById("news");
    
     var nbaTeam = document.getElementById("teamName");
+
     var openingPage = document.querySelector("#openingPage");
     var body = document.querySelector(".body");
     var newTeam = document.querySelector("#newTeam");
@@ -40,15 +41,23 @@ sportsTeam.addEventListener("change", function() {
     team = sportsTeam.value;
     teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
     nbaTeam.textContent = sportsTeam.value;
+    
+    console.log("team name" , team);
+    var newsTeam = team.lastIndexOf();
+    console.log("remove" , newsTeam);
 })    
 
 startBtn.addEventListener("click", tipOff) 
   
 function tipOff() {
     showTime1.classList.remove("hide");
-    showTime2.classList.remove("hide");
+  //  showTime2.classList.remove("hide");
     openingPage.classList.add("hide");
     body.classList.remove("body");
+
+    // var audio = new Audio("nbatheme.mp3");
+    // audio.play();
+
 
     fetch(teamSearchUrl, options)
         .then(response => response.json())
@@ -90,8 +99,12 @@ function allPlayers (array){
             playerText.textContent = allPlayersList[i];
             player = playerText.textContent;
             showTime1.classList.add('hide');
+            showTime2.classList.remove("hide");
             player = allPlayersList[i];
 
+            var audio = new Audio("nbatheme.mp3");
+            audio.play();
+            
             teamSearch();
         }
       }
@@ -173,9 +186,10 @@ function getNews() {
 function allNews (array){
 
     var allNewsList = [];
+  //  var allNewsList2 = allNewsList[0]
     
     for(let i = 0; i < array.length; i++) {
-        allNewsList.push(array[i].title);
+        allNewsList.push(array[i].url);
     }
         console.log("list of URL's" , allNewsList);
     
@@ -184,7 +198,8 @@ function allNews (array){
         a.textContent = allNewsList[i];
         a.setAttribute("href" , allNewsList[i]);
         news.appendChild(a);
- }   }
+ }  
+  }
 
 newTeam.addEventListener("click", pickNew)
 
