@@ -552,7 +552,6 @@ video {
 }
 
 body {
-  
   background-color: black;
 }
 
@@ -581,4 +580,37 @@ h2 {
   background-image: url("https://cdn.pixabay.com/photo/2020/07/14/16/59/basketball-5404905_960_720.jpg");
   background-repeat: no-repeat ;
   background-size: cover;
+}
+
+#showTime1 {
+  width: 100%;
+}
+
+#teamName {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#ballers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 100%;
+}
+
+@media screen and (max-width: 830px) {
+  #ballers {
+      height: 500px 
+  }
+  #subtitle {
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 5px;
+    padding: 10px 0 10px 0;
+  }
+  header {
+    height: 200px;
+  }
 }

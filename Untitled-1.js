@@ -37,6 +37,8 @@ const options2 ={
     
     var teamSearchUrl;
 
+    var audio = new Audio("nbatheme.mp3");
+
 sportsTeam.addEventListener("change", function() {
     team = sportsTeam.value;
     teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
@@ -78,7 +80,7 @@ function tipOff() {
 })})
 
 function allPlayers (array){
-
+console.log(array)
     var allPlayersList = [];
     
     for(let i = 0; i < array.length; i++) {
@@ -90,6 +92,7 @@ function allPlayers (array){
         let li = document.createElement("li");
         if (i == [i]) {
         li.className = 'clickable',
+        li.className = 'hover:text-orange-500'
         li.onclick = clicks;
         }
         li.innerHTML = allPlayersList[i];
@@ -102,7 +105,7 @@ function allPlayers (array){
             showTime2.classList.remove("hide");
             player = allPlayersList[i];
 
-            var audio = new Audio("nbatheme.mp3");
+            
             audio.play();
             
             teamSearch();
@@ -216,6 +219,7 @@ function pickNew() {
     spg.textContent = "";
     playerText.textContent = "";
     news.textContent = "";
+    audio.pause();
 
 }
 // document.addEventListener("load" , start);
