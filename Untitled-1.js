@@ -88,6 +88,7 @@ function allPlayers (array){
 
         function clicks() {
             playerText.textContent = allPlayersList[i];
+            player = playerText.textContent;
             showTime1.classList.add('hide');
             player = allPlayersList[i];
 
@@ -174,7 +175,7 @@ function allNews (array){
     var allNewsList = [];
     
     for(let i = 0; i < array.length; i++) {
-        allNewsList.push(array[i].url);
+        allNewsList.push(array[i].title);
     }
         console.log("list of URL's" , allNewsList);
     
@@ -198,6 +199,8 @@ function pickNew() {
     apg.textContent = "";
     bpg.textContent = "";
     spg.textContent = "";
+    playerText.textContent = "";
+    news.textContent = "";
 
 }
 // document.addEventListener("load" , start);
