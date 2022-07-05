@@ -22,7 +22,8 @@ const options2 ={
     var showTime2 = document.querySelector("#showTime2");
     var sportsTeam = document.querySelector("#allTeams");
     var ballers = document.getElementById("ballers");
-    
+    var song = document.getElementById("nbaSong");
+    var news = document.getElementById("news");
    
     var nbaTeam = document.getElementById("teamName");
     var openingPage = document.querySelector("#openingPage");
@@ -30,21 +31,16 @@ const options2 ={
     var newTeam = document.querySelector("#newTeam");
     var playerText = document.querySelector("#playerText");
     
-    var player = "";
+    var player =" ";
     var allPlayersList ;
-
+    
     var teamSearchUrl;
-
 
 sportsTeam.addEventListener("change", function() {
     team = sportsTeam.value;
     teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
     nbaTeam.textContent = sportsTeam.value;
 })    
-
-
-
-
 
 startBtn.addEventListener("click", tipOff) 
   
@@ -53,29 +49,22 @@ function tipOff() {
     showTime2.classList.remove("hide");
     openingPage.classList.add("hide");
     body.classList.remove("body");
-    
 
     fetch(teamSearchUrl, options)
         .then(response => response.json())
         .then(response => {
-        console.log("Team info again", response)
+        console.log("Team info", response)
 
         var allPlayersListUrl = "https://api-nba-v1.p.rapidapi.com/players?season=2021&team=" + response.response[0].id
 
     fetch(allPlayersListUrl, options)
         .then(response => response.json())
         .then(response => {
-        console.log("All players on team", response);
-        
+        console.log("names before response" , response)
         var playersArray = response.response; 
-        console.log(playersArray);   
+        console.log("Players and thier info on this team" , playersArray);   
 
-        
-        var allPlayersOnTeam = allPlayers(playersArray)
-
-        console.log("All names of players list" , allPlayersOnTeam)
-
-        
+         allPlayers(playersArray)
 
 })})
 
@@ -86,7 +75,7 @@ function allPlayers (array){
     for(let i = 0; i < array.length; i++) {
         allPlayersList.push(array[i].lastname);
     }
-        console.log(allPlayersList);
+        console.log("Array of Lastnames for this Team" , allPlayersList);
     
     for (let i = 0; i < allPlayersList.length; i++) {
         let li = document.createElement("li");
@@ -101,23 +90,13 @@ function allPlayers (array){
             playerText.textContent = allPlayersList[i];
             player = playerText.textContent;
             showTime1.classList.add('hide');
+            player = allPlayersList[i];
 
-            playerText.addEventListener("click", function() {
-                player = playerText.textContent
-                
-            })  
-            getNews();
             teamSearch();
         }
       }
       return allPlayersList;
 }}
-
-
-
-
- 
-
 
 function teamSearch () { 
     fetch(teamSearchUrl, options)
@@ -125,6 +104,8 @@ function teamSearch () {
         .then(response => {
         console.log("team info",response)
         console.log(player);
+
+        getNews();
 
             var responseTeam = response.response[0].id  
 
@@ -169,22 +150,40 @@ function avg(array , property){
     let sum = array.reduce(function (cumulativePoints,thisGame) {
         return cumulativePoints + thisGame[property]
     }, 0)
-        return (sum/array.length).toFixed(2)
-}
-}
+        return (sum/array.length).toFixed(2);
+        
+}}
 
 function getNews() {
     // let team = nbaTeam.textContent;
     // var fullNameSplit = team.split(" ");
     // let nameSplit = fullNameSplit[1];
-    var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/player/' + player;
+    var newsArticle = 'https://nba-latest-news.p.rapidapi.com/news/player/' + player ;
 
     fetch(newsArticle, options2)
     .then(response => response.json())
     .then(response => {
     console.log("news", response)
 
+    var array = response
+    allNews(array);
+
 })}
+
+function allNews (array){
+
+    var allNewsList = [];
+    
+    for(let i = 0; i < array.length; i++) {
+        allNewsList.push(array[i].title);
+    }
+        console.log("list of URL's" , allNewsList);
+    
+    for (let i = 0; i < allNewsList.length; i++) {
+        let li = document.createElement("li");
+        li.innerHTML = allNewsList[i];
+        news.appendChild(li);
+ }   }
 
 newTeam.addEventListener("click", pickNew)
 
@@ -200,6 +199,12 @@ function pickNew() {
     bpg.textContent = "";
     spg.textContent = "";
     playerText.textContent = "";
+    news.textContent = "";
 
 }
+// document.addEventListener("load" , start);
+
+// function start() {
+//     var audio = new Audio("nbatheme.mp3");
+//     audio.play();
 
