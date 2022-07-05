@@ -26,6 +26,7 @@ const options2 ={
     var news = document.getElementById("news");
    
     var nbaTeam = document.getElementById("teamName");
+
     var openingPage = document.querySelector("#openingPage");
     var body = document.querySelector(".body");
     var newTeam = document.querySelector("#newTeam");
@@ -36,19 +37,29 @@ const options2 ={
     
     var teamSearchUrl;
 
+    var audio = new Audio("nbatheme.mp3");
+
 sportsTeam.addEventListener("change", function() {
     team = sportsTeam.value;
     teamSearchUrl = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
     nbaTeam.textContent = sportsTeam.value;
+    
+    console.log("team name" , team);
+    var newsTeam = team.lastIndexOf();
+    console.log("remove" , newsTeam);
 })    
 
 startBtn.addEventListener("click", tipOff) 
   
 function tipOff() {
     showTime1.classList.remove("hide");
-    showTime2.classList.remove("hide");
+  //  showTime2.classList.remove("hide");
     openingPage.classList.add("hide");
     body.classList.remove("body");
+
+    // var audio = new Audio("nbatheme.mp3");
+    // audio.play();
+
 
     fetch(teamSearchUrl, options)
         .then(response => response.json())
@@ -69,7 +80,7 @@ function tipOff() {
 })})
 
 function allPlayers (array){
-
+console.log(array)
     var allPlayersList = [];
     
     for(let i = 0; i < array.length; i++) {
@@ -81,6 +92,7 @@ function allPlayers (array){
         let li = document.createElement("li");
         if (i == [i]) {
         li.className = 'clickable',
+        li.className = 'hover:text-orange-500'
         li.onclick = clicks;
         }
         li.innerHTML = allPlayersList[i];
@@ -90,8 +102,12 @@ function allPlayers (array){
             playerText.textContent = allPlayersList[i];
             player = playerText.textContent;
             showTime1.classList.add('hide');
+            showTime2.classList.remove("hide");
             player = allPlayersList[i];
 
+            
+            audio.play();
+            
             teamSearch();
         }
       }
@@ -173,6 +189,7 @@ function getNews() {
 function allNews (array){
 
     var allNewsList = [];
+  //  var allNewsList2 = allNewsList[0]
     
     for(let i = 0; i < array.length; i++) {
         allNewsList.push(array[i].url);
@@ -184,7 +201,8 @@ function allNews (array){
         a.textContent = allNewsList[i];
         a.setAttribute("href" , allNewsList[i]);
         news.appendChild(a);
- }   }
+ }  
+  }
 
 newTeam.addEventListener("click", pickNew)
 
@@ -201,6 +219,7 @@ function pickNew() {
     spg.textContent = "";
     playerText.textContent = "";
     news.textContent = "";
+    audio.pause();
 
 }
 // document.addEventListener("load" , start);
